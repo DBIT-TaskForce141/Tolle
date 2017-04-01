@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load staticfiles %}
+    {% load widget_tweaks %}
+	<link rel="stylesheet" type="text/css" href="{% static 'userdetails/material.min.css' %}" />
+	<script src="{% static 'userdetails/material.min.js' %}"></script>
+	<style type="text/css">
+		@font-face {
+  			font-family: 'Material Icons';
+  			font-style: normal;
+  			font-weight: 400;
+  			src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v21/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+		}
+
+		.material-icons {
+  			font-family: 'Material Icons';
+  			font-weight: normal;
+  			font-style: normal;
+  			font-size: 24px;
+  			line-height: 1;
+  			letter-spacing: normal;
+  			text-transform: none;
+  			display: inline-block;
+  			white-space: nowrap;
+  			word-wrap: normal;
+  			direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+	</style>
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">HighPay</span>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+    	<div style="position: relative; height: 5em"></div>
+    	<div class="mdl-card mdl-shadow--4dp mdl-grid center-items">
+  			<div class="mdl-card__title" style="padding: 0;">
+    			<h4>Login</h4>
+  			</div>
+  			<form action="" method="post">
+			{% csrf_token %}
+  				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    {% render_field form.username class+="mdl-textfield__input" %}
+                    <!--pattern="-?[0-9]*(\.[0-9]+)?"-->
+    				<label class="mdl-textfield__label" for="sample4">{{ form.username.label_tag }}</label>
+  				</div>
+  				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  					{% render_field form.password class+="mdl-textfield__input" %}
+                    <!--pattern="-?[0-9]*(\.[0-9]+)?"-->
+    				<label class="mdl-textfield__label" for="sample4">{{ form.password.label_tag }}</label>
+  				</div>
+  				<div class="mdl-layout-spacer"></div>
+  				<div class="mdl-grid center-items">
+  					<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  						Login
+					</button>
+				</div>
+  			</form>
+		</div>
+    </div>
+  </main>
+</div>	
+</body>
+</html>
