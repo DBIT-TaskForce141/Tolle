@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse, render_to_response
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from django.contrib.auth import authenticate, login, logout
@@ -45,3 +46,13 @@ def logout(request):
     logout(request)
     form = UserForm(None)
     return render(request, 'userdetails/login.html', {'form': form})
+
+
+def journey(request, pk):
+    r = RfidCar.objects.get(pk=pk)
+    return render(request, 'userdetails/journey.html', {'r':r})
+
+
+def payment(request, pk):
+    r = RfidCar.objects.get(pk=pk)
+    return render(request, 'userdetails/payment.html', {'r': r})
