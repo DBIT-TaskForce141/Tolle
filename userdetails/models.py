@@ -65,3 +65,11 @@ class Transaction(models.Model):
     transaction_date_time = models.DateTimeField(blank=True, null=True)
     amount_paid = models.IntegerField(default=0)
     payment_status = models.BooleanField(default=False)
+
+class Service(models.Model):
+    service_name = models.CharField(max_length=50)
+
+class serviceAt(models.Model):
+    service = models.ForeignKey(Service)
+    tollPlaza = models.ForeignKey(TollPlaza)
+    description = models.CharField(max_length = 150)
