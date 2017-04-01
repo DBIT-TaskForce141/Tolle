@@ -1,0 +1,7 @@
+Installation of the project
+1. You must have Python and Django installed in your machine in order to install this project. To install Django, visit https://docs.djangoproject.com/en/1.10/howto/windows/
+2. Once django is installed, clone the repository inside a folder with a name of your choice.
+3. Just navigate to the <your-folder-name> using Command Prompt.
+4. Run the command "python manage.py runserver" without the quotes.
+5. A localhost server at default port 8000 will be started.
+6. You can use your browser to visit "http://127.0.0.1:8000/" and a login page will appear.
